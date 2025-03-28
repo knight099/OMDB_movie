@@ -2,18 +2,21 @@ from flask import Flask, request, jsonify
 import requests
 import os
 from dotenv import load_dotenv
+from flask_cors import CORS
 
 # Load environment variables
 load_dotenv()
 
 app = Flask(__name__)
 port = int(os.environ.get("PORT", 5000))
+cors = CORS(app)
 
 # Get OMDb API key from environment variable
 OMDB_API_KEY = os.getenv('OMDB_API_KEY')
 OMDB_BASE_URL = 'http://www.omdbapi.com/'
 
-@app.route('/api/search', methods=['GET'])
+
+@app.route("/api/search", methods=["GET"])
 def search_movies():
     query = request.args.get('query', '')
     if not query:
