@@ -13,7 +13,11 @@ const Home = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await axios.get(`http://localhost:5000/api/search?query=${encodeURIComponent(searchTerm)}`);
+      const response = await axios.get(
+        `https://omdb-movie-backend.onrender.com/api/search?query=${encodeURIComponent(
+          searchTerm
+        )}`
+      );
       console.log(response.data)
       setMovies(response.data.Search || []);
     } catch (err) {

@@ -24,7 +24,10 @@ const MovieDetail = () => {
   useEffect(() => {
     const fetchMovieDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/movie/${id}`);
+        const response = await axios.get(
+          `https://omdb-movie-backend.onrender.com/api/movie/${id}`
+        );
+        console.log(response.data)
         setMovie(response.data);
       } catch (err) {
         setError(err.response?.data?.error || 'Failed to fetch movie details');
