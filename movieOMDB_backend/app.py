@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
+port = int(os.environ.get("PORT", 5000))
 
 # Get OMDb API key from environment variable
 OMDB_API_KEY = os.getenv('OMDB_API_KEY')
@@ -59,4 +60,4 @@ def get_movie_details(imdb_id):
 if __name__ == '__main__':
     if not OMDB_API_KEY:
         print("Warning: OMDB_API_KEY not found in environment variables")
-    app.run(debug=True) 
+    app.run(debug=True, host="0.0.0.0", port=port) 

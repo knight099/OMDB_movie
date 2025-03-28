@@ -14,6 +14,7 @@ const Home = () => {
     setError(null);
     try {
       const response = await axios.get(`http://localhost:5000/api/search?query=${encodeURIComponent(searchTerm)}`);
+      console.log(response.data)
       setMovies(response.data.Search || []);
     } catch (err) {
       setError(err.response?.data?.error || 'Failed to fetch movies');
