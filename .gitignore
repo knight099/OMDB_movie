@@ -1,5 +1,5 @@
 # dependencies
-/node_modules
+/omdbfrontend/node_modules
 /.pnp
 .pnp.js
 
@@ -59,10 +59,10 @@ wheels/
 *.egg
 
 # Virtual Environment
-venv/
-env/
+/movieOMDB_backend/venv/
+/movieOMDB_backend/env/
 ENV/
-.env
+/movieOMDB_backend/.env
 
 # IDE specific files
 .idea/
